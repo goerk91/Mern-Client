@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Register from "./components/auth/Register";
 import Navbar from "./components/Layout/Navbar";
 
 export default function Router() {
@@ -11,7 +12,7 @@ export default function Router() {
           <div>Home</div>
         </Route>
         <Route path="/register">
-          <div>Register</div>
+          <Register />
         </Route>
         <Route path="/login">
           <div>Login</div>
