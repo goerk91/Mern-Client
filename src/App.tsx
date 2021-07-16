@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// new branch development
+// updated Main branch
 function App() {
   return (
     <div className="App">
