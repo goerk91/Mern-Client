@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Register from "./components/auth/Register";
 import Navbar from "./components/Layout/Navbar";
+import Login from "./components/auth/Login";
 
 export default function Router() {
   return (
@@ -15,7 +16,7 @@ export default function Router() {
           <Register />
         </Route>
         <Route path="/login">
-          <div>Login</div>
+          <Login />
         </Route>
         <Route path="/customer">
           <div>Customer</div>
