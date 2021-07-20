@@ -1,9 +1,14 @@
-import React, { useState, SyntheticEvent } from "react";
+import React, { useState, SyntheticEvent, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 
 export default function Register() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordVerify, setPasswordVerify] = useState<string>("");
+
+  const { getLoggedIn } = useContext(AuthContext);
+  const history = useHistory();
 
   const register = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -13,7 +18,7 @@ export default function Register() {
         password: password,
         passwordVerify: passwordVerify,
       };
-      fetch("http://localhost:5000/auth/", {
+      await fetch("http://localhost:5000/auth/", {
         method: "POST",
         headers: {
           "Accept": "application/json",
@@ -22,6 +27,8 @@ export default function Register() {
         credentials: "include",
         body: JSON.stringify(registerData),
       });
+      await getLoggedIn();
+      history.push("/");
     } catch (err) {
       console.error(err);
     }
