@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
+import LogoutBtn from "../auth/LogoutBtn";
 
 export default function Navbar() {
+  const { loggedIn } = useContext(AuthContext);
+
   return (
     <div>
       <Link to="/">Home</Link>
-      <Link to="/register">Register</Link>
-      <Link to="/login">Log in</Link>
-      <Link to="/customer">Customer</Link>
+      {loggedIn === false && (
+        <>
+          <Link to="/register">Register</Link>
+          <Link to="/login">Log in</Link>
+        </>
+      )}
+      {loggedIn === true && (
+        <>
+          <Link to="/customer">Customer</Link>
+          <LogoutBtn />
+        </>
+      )}
     </div>
   );
 }
