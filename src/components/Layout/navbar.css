@@ -1,0 +1,25 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 5vmin auto 0;
+  width: 90vmin;
+}
+.nav-container > div a {
+  text-decoration: none;
+  color: #222;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 30px;
+}
+.menu:hover a {
+  color: #ccac00;
+}
+
+/*
+.nav-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 30%;
+  border: 1px solid red;
+}
+*/
