@@ -1,8 +1,13 @@
-import React, { useState, SyntheticEvent } from "react";
+import React, { useState, SyntheticEvent, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const { getLoggedIn } = useContext(AuthContext);
+  const history = useHistory();
 
   const login = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -11,7 +16,7 @@ export default function Login() {
         email: email,
         password: password,
       };
-      fetch("http://localhost:5000/auth/login", {
+      await fetch("http://localhost:5000/auth/login", {
         method: "POST",
         headers: {
           "Accept": "application/json",
@@ -20,6 +25,8 @@ export default function Login() {
         credentials: "include",
         body: JSON.stringify(loginData),
       });
+      await getLoggedIn();
+      history.push("/");
     } catch (err) {
       console.error(err);
     }
