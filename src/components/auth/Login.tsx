@@ -2,30 +2,28 @@ import React, { useState, SyntheticEvent, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
-export default function Register() {
+export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [passwordVerify, setPasswordVerify] = useState<string>("");
 
   const { getLoggedIn } = useContext(AuthContext);
   const history = useHistory();
 
-  const register = async (e: SyntheticEvent) => {
+  const login = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
-      const registerData = {
+      const loginData = {
         email: email,
         password: password,
-        passwordVerify: passwordVerify,
       };
-      await fetch("http://localhost:5000/auth/", {
+      await fetch("http://localhost:5000/auth/login", {
         method: "POST",
         headers: {
           "Accept": "application/json",
           "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify(registerData),
+        body: JSON.stringify(loginData),
       });
       await getLoggedIn();
       history.push("/");
@@ -36,8 +34,8 @@ export default function Register() {
 
   return (
     <div>
-      <h1>Register a new Account</h1>
-      <form onSubmit={register}>
+      <h1>Login to your Account</h1>
+      <form onSubmit={login}>
         <input
           type="email"
           placeholder="Email"
@@ -50,13 +48,7 @@ export default function Register() {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <input
-          type="password"
-          placeholder="Verify your Password"
-          onChange={(e) => setPasswordVerify(e.target.value)}
-          value={passwordVerify}
-        />
-        <button type="submit">Register</button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );
