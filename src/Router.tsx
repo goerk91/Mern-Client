@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Register from "./components/auth/Register";
+import Register from "./components/auth/register/Register";
 import Navbar from "./components/Layout/Navbar";
-import Login from "./components/auth/Login";
+import Login from "./components/auth/login/Login";
 import AuthContext from "./context/AuthContext";
 import Customers from "./components/customers/Customers";
 import Home from "./components/Home/Home";
