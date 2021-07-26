@@ -1,8 +1,9 @@
 .nav-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 5vmin auto 0;
-  width: 90vmin;
+  width: 50vmin;
 }
 .nav-container > div a {
   text-decoration: none;
@@ -12,14 +13,5 @@
 }
 .menu:hover a {
   color: #ccac00;
+  text-decoration: underline;
 }
-
-/*
-.nav-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 auto;
-  width: 30%;
-  border: 1px solid red;
-}
-*/
