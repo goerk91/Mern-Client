@@ -12,7 +12,7 @@ export default function CustomerList(props: ICustomerList) {
   const { customer } = props;
 
   return (
-    <div>
+    <div className="container">
       <ul>
         {customer.map((customer, i) => {
           return <li key={i}>{customer.name} </li>;
