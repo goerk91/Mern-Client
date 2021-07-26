@@ -1,5 +1,5 @@
 import React, { useState, SyntheticEvent } from "react";
-
+import "./css/customers.css";
 interface ICustomerForm {
   getCustomers: () => void;
 }
