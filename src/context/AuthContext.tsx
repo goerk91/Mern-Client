@@ -2,6 +2,7 @@ import React, { useState, createContext, useEffect, ReactNode } from "react";
 /* Frage: Wenn die Seite schnell refreshed/gerendert wird, wird register und Login kurz eingeblendet,
  aufgrund des default values, hier loggedIn = false. Wie lässt sich das vermeiden?
 */
+
 const AuthContext = createContext({
   loggedIn: false,
   getLoggedIn: (): void => {},
