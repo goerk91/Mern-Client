@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import LogoutBtn from "../auth/LogoutBtn";
+import LogoutBtn from "../auth/logout/LogoutBtn";
 import "./navbar.css";
 
 export default function Navbar() {
   const { loggedIn } = useContext(AuthContext);
-
   return (
     <div className="nav-container">
       <div className="menu">
